@@ -8,7 +8,9 @@ public class CollectFlowerScript : MonoBehaviour
     public Transform flowerTransform;
     public GameObject player;
     public InventoryManager inventoryManager;
-    public GameObject flower1;
+    public GameObject flower;
+    public GameObject nextFlower;
+    public Compass compass;
     private bool isPlayerNearby = false;
     private bool isFlowerEquipped = false;
 
@@ -64,7 +66,8 @@ public class CollectFlowerScript : MonoBehaviour
     {
         isFlowerEquipped = true;
         Debug.Log("Flower Equipped!");
-        inventoryManager.AddFlower(flower1);
+        inventoryManager.AddFlower(flower);
+        compass.setFlower(nextFlower);
         Destroy(gameObject);        // remove map object from game
     }
 }

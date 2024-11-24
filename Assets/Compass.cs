@@ -6,6 +6,10 @@ public class Compass : MonoBehaviour
     public Transform targetFlower;     // The target flower's transform
     public RectTransform compassNeedle; // The UI element representing the compass needle
 
+    public void setFlower(GameObject flower)
+    {
+        targetFlower = flower.transform;
+    }
     void Update()
     {
         if (player != null && targetFlower != null)
