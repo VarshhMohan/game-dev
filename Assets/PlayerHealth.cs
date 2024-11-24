@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth; // Current health
 
     public Slider healthBar;   // Reference to the health bar slider
+    public GameUIManager gameUIManager; // reference to ui manager for showing death screen
 
     void Start()
     {
@@ -43,7 +44,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player has died.");
-        // Implement death logic, e.g., reload scene or show a game over screen
+        gameUIManager.ShowDeathScreen();
     }
 }
