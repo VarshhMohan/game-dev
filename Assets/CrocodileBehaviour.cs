@@ -20,13 +20,12 @@ public class CrocodileBehavior : MonoBehaviour
         SetRandomRoamTarget();
     }
 
-    void Update()
+    public void Update()
     {
         if (isPlayerInWater)
         {
             // Follow the player
             agent.SetDestination(player.position);
-            DealDamageToPlayer();
         }
         else
         {
@@ -38,22 +37,6 @@ public class CrocodileBehavior : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == player.gameObject)
-        {
-            isPlayerInWater = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == player.gameObject)
-        {
-            isPlayerInWater = false;
-            SetRandomRoamTarget(); // Resume roaming when player leaves water
-        }
-    }
 
     void SetRandomRoamTarget()
     {
@@ -70,15 +53,37 @@ public class CrocodileBehavior : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) // Use tag to identify the player
+        {
+            DealDamageToPlayer();
+        }
+    }
     void DealDamageToPlayer()
     {
         if (Time.time - lastDamageTime >= damageInterval)
         {
             lastDamageTime = Time.time;
 
-            // Implement health system or call a damage method on the player
-            Debug.Log("Player takes damage: " + damageAmount);
-            // Example: player.GetComponent<PlayerHealth>().TakeDamage(damageAmount);
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damageAmount);
+            }
         }
     }
+
+
+    public void PlayerEnteredWater()
+    {
+        isPlayerInWater = true;
+    }
+
+    public void PlayerExitedWater()
+    {
+        isPlayerInWater = false;
+        SetRandomRoamTarget();
+    }
+
 }
