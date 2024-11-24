@@ -7,6 +7,7 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject inventoryUI; // Assign the inventory panel here
+    public GameObject inventoryButton; // UI button for inventory open
     public Transform flowersContent; // Scroll View Content for Flowers
     public Transform potionsContent; // Scroll View Content for Potions
     public Transform gearContent; // Scroll View Content for Potions
@@ -24,6 +25,7 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         inventoryUI.SetActive(false); // Hide inventory at start
+        inventoryButton.SetActive(true);
     }
 
     void Update()
@@ -38,6 +40,7 @@ public class InventoryManager : MonoBehaviour
     public void ToggleInventory()
     {
         inventoryUI.SetActive(!inventoryUI.activeSelf); // Open/Close inventory
+        inventoryButton.SetActive(!inventoryButton.activeSelf); //close/open inventory
     }
 
     public void AddFlower(GameObject flowerPrefab)
