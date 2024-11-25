@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+// using UnityEngine.UIElements;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -16,10 +17,12 @@ public class InventoryManager : MonoBehaviour
     public GameObject flowersScrollView;
     public GameObject potionsScrollView;
     public GameObject gearsScrollView;
+    public VideoManager videoManager;
 
     private List<GameObject> flowers = new List<GameObject>();
     private List<GameObject> potions = new List<GameObject>();
     private List<GameObject> gears = new List<GameObject>();
+    private bool isStoryTriggered = false;
 
 
     void Start()
@@ -30,6 +33,10 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
+        if(flowers.Count == 5 && !isStoryTriggered){
+            isStoryTriggered = true;
+            videoManager.PlayVideoByTrigger(9);
+        }
         if (Input.GetKeyDown(KeyCode.I)) // Press 'I' to toggle inventory
         {
             ToggleInventory();
@@ -104,6 +111,10 @@ public class InventoryManager : MonoBehaviour
         flowersScrollView.SetActive(false);
         potionsScrollView.SetActive(false);
         gearsScrollView.SetActive(true);
+    }
+
+    public bool collectedFlowers(){
+        return flowers.Count == 5;
     }
 }
 

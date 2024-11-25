@@ -8,6 +8,8 @@ public class DetectPlayer : MonoBehaviour
     public GameObject player;
     public GameObject mapIcon;
     public GameObject mapPanel;
+    public VideoManager videoManager;
+    private bool isStoryTellingTriggered = false;
     private bool isPlayerNearby = false;
     private bool isMapEquipped = false;
 
@@ -26,6 +28,11 @@ public class DetectPlayer : MonoBehaviour
         if (other.gameObject == player)
         {
             isPlayerNearby = true;
+            if(!isStoryTellingTriggered)
+            {
+                isStoryTellingTriggered = true;
+                videoManager.PlayVideoByTrigger(6); // play e-press intro
+            }
             if (highlightLight != null)
             {
                 highlightLight.intensity = 2;

@@ -11,6 +11,8 @@ public class CollectFlowerScript : MonoBehaviour
     public GameObject flower;
     public GameObject nextFlower;
     public Compass compass;
+    public VideoManager videoManager;
+    private bool isStoryTellingTriggered = false;
     private bool isPlayerNearby = false;
     private bool isFlowerEquipped = false;
 
@@ -27,6 +29,11 @@ public class CollectFlowerScript : MonoBehaviour
         if (other.gameObject == player)
         {
             isPlayerNearby = true;
+            if(!isStoryTellingTriggered && videoManager != null)
+            {
+                isStoryTellingTriggered = true;
+                videoManager.PlayVideoByTrigger(7); // play i-press intro
+            }
             if (highlightLight != null)
             {
                 highlightLight.intensity = 2;

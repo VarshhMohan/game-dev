@@ -128,6 +128,42 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 143933568}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &13567783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13567779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d561155d71387e2459c13012939b5fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 990681688}
+  videoManager: {fileID: 501472346}
+  gameUIManager: {fileID: 154635637}
+--- !u!65 &13567784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13567779}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.840201, y: 2.8410003, z: 2.840201}
+  m_Center: {x: 0, y: 0.0005000234, z: 0}
 --- !u!1001 &31651123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -975,7 +1011,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5607819269926399345, guid: 45e0f06c750176947862c10346226439,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 13567783}
+    - targetCorrespondingSourceObject: {fileID: 5607819269926399345, guid: 45e0f06c750176947862c10346226439,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 13567784}
   m_SourcePrefab: {fileID: 100100000, guid: 45e0f06c750176947862c10346226439, type: 3}
 --- !u!1 &154635636
 GameObject:
@@ -2687,6 +2731,7 @@ MonoBehaviour:
   flower: {fileID: 7069880978774617719, guid: cab31eb0c9b1ae24a81d2ca70929908d, type: 3}
   nextFlower: {fileID: 1539194547}
   compass: {fileID: 874520727}
+  videoManager: {fileID: 0}
 --- !u!114 &352681949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3020,6 +3065,7 @@ MonoBehaviour:
   - {fileID: 797874669}
   - {fileID: 910602324}
   - {fileID: 617533840}
+  videoManager: {fileID: 501472346}
 --- !u!1001 &368375394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4144,6 +4190,7 @@ MonoBehaviour:
   flower: {fileID: 7069880978774617719, guid: d3caa5897becd1e4197579bbe564e3f9, type: 3}
   nextFlower: {fileID: 13567779}
   compass: {fileID: 874520727}
+  videoManager: {fileID: 0}
 --- !u!65 &464703636
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4515,6 +4562,100 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2078386397}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &501472345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501472348}
+  - component: {fileID: 501472347}
+  - component: {fileID: 501472346}
+  m_Layer: 0
+  m_Name: Story Telling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &501472346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501472345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d428c52b6de87742aa1ad009930925b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 501472347}
+  videoClips:
+  - {fileID: 32900000, guid: 38ff711cb97f15744967444f3b7853a9, type: 3}
+  - {fileID: 32900000, guid: 299e86e4036673b4bb840af003772659, type: 3}
+  - {fileID: 32900000, guid: cc1b007143da88b488a1e2d40656048d, type: 3}
+  - {fileID: 32900000, guid: e1bd429052f64804c9ba22f462bc47f4, type: 3}
+  - {fileID: 32900000, guid: 3737da13ab02f36408439cc5518cd38c, type: 3}
+  - {fileID: 32900000, guid: 1b05d077d304819458a50375b140a79c, type: 3}
+  - {fileID: 32900000, guid: 22e61cb04848c124f9e8a416fb55a334, type: 3}
+  - {fileID: 32900000, guid: ea0a81238d32dec4c8a12aee33f74144, type: 3}
+  - {fileID: 32900000, guid: b17099963daa87343aa419569ba117a9, type: 3}
+  - {fileID: 32900000, guid: 90cc4476a3ddbc74085c9d9b7530a067, type: 3}
+  - {fileID: 32900000, guid: 4b7f1dba71b16ae449c01a184d0ada01, type: 3}
+--- !u!328 &501472347
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501472345}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 1047855496}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &501472348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501472345}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 355, y: 284, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &538028643
@@ -6235,6 +6376,7 @@ MonoBehaviour:
   flower: {fileID: 7069880978774617719, guid: 884aad3bd70ae85418086ebc377bc811, type: 3}
   nextFlower: {fileID: 352681945}
   compass: {fileID: 874520727}
+  videoManager: {fileID: 0}
 --- !u!65 &669960906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8793,6 +8935,7 @@ MonoBehaviour:
   flowersScrollView: {fileID: 1760411861}
   potionsScrollView: {fileID: 1406481281}
   gearsScrollView: {fileID: 1861500061}
+  videoManager: {fileID: 501472346}
 --- !u!1001 &992462423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9576,6 +9719,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6530764182435078953, guid: 957579ed33eb22040bb203c8100f624f,
     type: 3}
   m_PrefabInstance: {fileID: 1041810242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1047855496 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
+    type: 3}
+  m_PrefabInstance: {fileID: 4072310712611452141}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1053639698 stripped
 GameObject:
@@ -12751,6 +12900,7 @@ MonoBehaviour:
   flower: {fileID: 7069880978774617719, guid: 562f7ad1084e4954fa2c1578d92b2880, type: 3}
   nextFlower: {fileID: 464703630}
   compass: {fileID: 874520727}
+  videoManager: {fileID: 0}
 --- !u!65 &1539194553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14606,6 +14756,7 @@ MonoBehaviour:
   flower: {fileID: 7069880978774617719, guid: d43b806a95171f5409b6cdd9095b3ec0, type: 3}
   nextFlower: {fileID: 669960901}
   compass: {fileID: 874520727}
+  videoManager: {fileID: 501472346}
 --- !u!65 &1752044147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18428,6 +18579,7 @@ MonoBehaviour:
   player: {fileID: 274969237}
   mapIcon: {fileID: 195145604}
   mapPanel: {fileID: 1856970948}
+  videoManager: {fileID: 501472346}
 --- !u!65 &2104819209
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20058,3 +20210,4 @@ SceneRoots:
   - {fileID: 143933568}
   - {fileID: 1932068797}
   - {fileID: 154635638}
+  - {fileID: 501472348}
