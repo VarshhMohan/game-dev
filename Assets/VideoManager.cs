@@ -20,11 +20,11 @@ public class VideoManager : MonoBehaviour
         if (startingStory && isPlaying)
         {
             // Handle initial story sequence (videos 0 to 4)
-            if (Input.anyKeyDown && currentClipIndex < 4)
+            if (Input.GetKeyDown(KeyCode.Space) && currentClipIndex < 4)
             {
                 PlayNextVideo();
             }
-            else if (Input.anyKeyDown && currentClipIndex == 4)
+            else if (Input.GetKeyDown(KeyCode.Space) && currentClipIndex == 4)
             {
                 startingStory = false; // End the initial story sequence
                 EndStory();
@@ -33,7 +33,7 @@ public class VideoManager : MonoBehaviour
         else if (triggeredVideoPlaying && isPlaying)
         {
             // Handle triggered video playback
-            if (Input.anyKeyDown)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 StopTriggeredVideo();
             }
